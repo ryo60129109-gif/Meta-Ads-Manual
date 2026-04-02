@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta広告 代理店運用 完全セットアップマニュアル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',   /* pink-50 */
+                            100: '#fce7f3',  /* pink-100 */
+                            500: '#ec4899',  /* pink-500 */
+                            800: '#9d174d',  /* pink-800 */
+                            900: '#831843',  /* pink-900 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+            line-height: 1.7;
+        }
+        .insta-gradient {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        .insta-text {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="insta-gradient text-white shadow-md py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Meta広告 代理店運用<br>完全セットアップマニュアル</h1>
+            <p class="text-white/80 text-lg font-medium">〜 アカウント作成から管理設計まで 〜</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <article class="bg-white rounded-xl shadow-sm p-6 md:p-10">
+
+            <!-- 全体フロー概要 -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-brand-800 border-b-2 border-brand-100 pb-3 mb-6 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    全体フロー概要
+                </h2>
+                <p class="mb-4">Meta広告を代理店として複数クライアント分を運用するには、以下の5つのSTEPで環境を整えます。</p>
+                <ol class="space-y-3 mb-6 bg-gray-50 p-6 rounded-lg border border-gray-100">
+                    <li class="flex items-start"><span class="step-number text-sm shrink-0">1</span><span>自社のビジネスマネージャー（BM）を作成する</span></li>
+                    <li class="flex items-start"><span class="step-number text-sm shrink-0">2</span><span>クライアントのBMを作成・設定する</span></li>
+                    <li class="flex items-start"><span class="step-number text-sm shrink-0">3</span><span>クライアントのBMにパートナーとして入り、広告アカウント・Pixel・ページを設定する</span></li>
+                    <li class="flex items-start"><span class="step-number text-sm shrink-0">4</span><span>効率よく管理するための仕組みを設計する</span></li>
+                    <li class="flex items-start"><span class="step-number text-sm shrink-0">5</span><span>広告の運用を開始する</span></li>
+                </ol>
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded text-red-800">
+                    <p><strong>大原則として、クライアントのInstagramから直接広告を出してはいけません。</strong> 必ずビジネスマネージャーを通じて管理します。BMを使うことで、複数クライアントを安全・効率的に一元管理できます。</p>
+                </div>
+            </section>
+
+            <!-- STEP 1 -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-brand-800 border-b-2 border-brand-100 pb-3 mb-6 flex items-center">
+                    <span class="step-number text-xl mr-3">1</span>自社ビジネスマネージャーの作成
+                </h2>
+                
+                <h3 class="text-xl font-bold text-gray-800 mb-3">ビジネスマネージャーとは</h3>
+                <p class="mb-6">ビジネスマネージャー（BM）は、Meta（Facebook・Instagram）の広告・ページ・Pixelなどを一元管理するための無料の管理ツールです。<br>
+                個人のFacebookアカウントで管理すると、ビジネスと個人が混在してしまい、担当者交代にも対応できず、複数クライアントの管理が困難になります。BMを使うことでビジネスと個人を完全に分離し、複数人での権限管理や、パートナー機能による安全な連携が可能になります。</p>
+
+                <h3 class="text-xl font-bold text-gray-800 mb-3">作成手順</h3>
+                <ol class="list-decimal list-inside space-y-2 ml-2 bg-white border border-gray-200 p-5 rounded-lg">
+                    <li>ブラウザで <a href="https://business.facebook.com" target="_blank" class="text-brand-500 hover:underline">https://business.facebook.com</a> にアクセスします。<br>
+                        <span class="text-sm text-gray-500 ml-6">※BMの作成には個人のFacebookアカウントが必要なので、まだない場合は先にfacebook.comで作成してください。</span>
+                    </li>
+                    <li>右上の「アカウントを作成」をクリックします。</li>
+                    <li>ビジネス名（例：株式会社〇〇）・あなたの氏名・会社のメールアドレスを入力して「次へ」を押します。（なければ個人メールアドレスでも可能です）</li>
+                    <li>確認メールが届いたら「確認する」をクリックします。ダッシュボードが表示されれば完了です。</li>
+                </ol>
+            </section>
+
+            <!-- STEP 2 -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-brand-800 border-b-2 border-brand-100 pb-3 mb-6 flex items-center">
+                    <span class="step-number text-xl mr-3">2</span>クライアントビジネスマネージャーの作成
+                </h2>
+
+                <h3 class="text-xl font-bold text-gray-800 mb-3">クライアントのBMがない場合：新規作成を依頼する</h3>
+                <p class="mb-4">クライアントに <a href="https://business.facebook.com" target="_blank" class="text-brand-500 hover:underline">https://business.facebook.com</a> にアクセスしてもらい、「アカウントを作成」からビジネスマネージャーを作成するよう依頼します。</p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded text-yellow-900 mb-6">
+                    <p class="font-bold mb-1">⚠️ 重要：FacebookアカウントはInstagramアカウントでは代替できません</p>
+                    <p class="text-sm">ビジネスマネージャーへのログインにはFacebookアカウントが必須です。「Instagram広告だけ出したい」という場合でも、広告を管理・配信する仕組み自体がMetaのビジネスマネージャー上で動いているため、Facebookアカウントが必要になります。</p>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-800 mb-3">支払い方法（クレジットカード）の登録</h3>
+                <p class="mb-4">クライアントに以下の手順で支払い方法を登録してもらいます。</p>
+                <ol class="list-decimal list-inside space-y-2 ml-2 mb-6 bg-white border border-gray-200 p-5 rounded-lg">
+                    <li><a href="https://business.facebook.com" target="_blank" class="text-brand-500 hover:underline">https://business.facebook.com</a> にアクセスしてログイン</li>
+                    <li>左上「≡（三本線）メニュー」→「広告マネージャー」を開く</li>
+                    <li>画面左上「≡」→「請求と支払い」を選ぶ</li>
+                    <li>「支払い方法を追加」ボタンをクリック</li>
+                    <li>「クレジットカードまたはデビットカード」を選択</li>
+                    <li>以下のカード情報を入力して「続行」を押す
+                        <ul class="list-disc list-inside ml-8 mt-2 text-gray-600 space-y-1">
+                            <li>カード番号</li>
+                            <li>有効期限</li>
+                            <li>セキュリティコード（カード裏面の3桁）</li>
+                            <li>カード名義人（ローマ字）</li>
+                            <li>請求先住所</li>
+                        </ul>
+                    </li>
+                    <li>カードが一覧に表示されれば登録完了</li>
+                </ol>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded text-red-800">
+                    <p class="font-bold mb-2">⚠️ 支払いに関する注意点</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm">
+                        <li>広告費は一定金額に達するたびに自動で引き落とされます。残高不足にならないよう注意してください。</li>
+                        <li>カード情報を変更した場合は必ず弊社にご連絡ください。カードが使えなくなると広告が自動停止されます。</li>
+                        <li>登録できるのはVisa・Mastercard・American Expressなどの国際ブランドのカードです。一部のデビットカードやプリペイドカードは登録できない場合があります。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- STEP 3 -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-brand-800 border-b-2 border-brand-100 pb-3 mb-6 flex items-center">
+                    <span class="step-number text-xl mr-3">3</span>パートナー連携と広告アカウント設定
+                </h2>
+                <p class="mb-6">Meta広告を出稿するには2つの設定が必要です。それぞれクライアント側の作業と弊社側の作業に分かれます。</p>
+
+                <div class="bg-gray-50 p-6 rounded-lg mb-8 border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 pb-2 border-b border-gray-300">【クライアントにやってもらう作業】</h3>
+                    
+                    <h4 class="font-bold text-brand-800 mb-2">① Facebookページの連携</h4>
+                    <p class="mb-3 text-sm">FacebookページはクライアントのログインIDとパスワードが必要なため、クライアント自身に行ってもらいます。</p>
+                    <ol class="list-decimal list-inside space-y-1 ml-2 mb-4 text-sm">
+                        <li><a href="https://business.facebook.com" target="_blank" class="text-brand-500 hover:underline">https://business.facebook.com</a> にアクセスしてログイン</li>
+                        <li>左上「≡（三本線）メニュー」→「ビジネス設定」を開く</li>
+                        <li>左メニュー「アカウント」→「ページ」をクリック</li>
+                        <li>「＋追加」→「ページを追加」を選ぶ</li>
+                        <li>自社のFacebookページ名またはURLを入力して追加する</li>
+                    </ol>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded text-blue-800 text-sm mb-6">
+                        💡 <strong>Facebookページをまだ持っていない場合：</strong> <a href="https://facebook.com/pages/create" target="_blank" class="underline">facebook.com/pages/create</a> にアクセスして作成してください。会社名・業種カテゴリ・ロゴ・住所・電話番号・営業時間を入力しておくと広告の信頼性が上がります。
+                    </div>
+
+                    <h4 class="font-bold text-brand-800 mb-2">② Instagramアカウントの連携</h4>
+                    <p class="mb-3 text-sm">InstagramのIDとパスワードが必要なため、クライアント自身に行ってもらいます。</p>
+                    <ol class="list-decimal list-inside space-y-1 ml-2 mb-4 text-sm">
+                        <li><a href="https://business.facebook.com" target="_blank" class="text-brand-500 hover:underline">https://business.facebook.com</a> にアクセスしてログイン</li>
+                        <li>左上「≡（三本線）メニュー」→「ビジネス設定」を開く</li>
+                        <li>左メニュー「アカウント」→「Instagramアカウント」をクリック</li>
+                        <li>「＋追加」ボタンをクリック</li>
+                        <li>会社のInstagramのユーザー名とパスワードを入力してログイン</li>
+                        <li>一覧にInstagramアカウントが表示されれば連携完了</li>
+                    </ol>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded text-blue-800 text-sm">
+                        💡 <strong>Instagramがビジネスアカウントになっていない場合：</strong> Instagramアプリで「設定 → アカウント → プロアカウントに切り替える」から変更してください。これをしておくと連携がスムーズです。
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 pb-2 border-b border-gray-300">【クライアントと弊社の連携作業】</h3>
+                    <p class="mb-4 text-sm">弊社側からアクセスリクエストを送るため、まずクライアントに「広告アカウントID（15桁の数字）」を教えてもらう必要があります。</p>
+
+                    <h4 class="font-bold text-brand-800 mb-2">【クライアントへの案内】広告アカウントIDの確認方法</h4>
+                    <ol class="list-decimal list-inside space-y-1 ml-2 mb-6 text-sm">
+                        <li><a href="https://business.facebook.com" target="_blank" class="text-brand-500 hover:underline">https://business.facebook.com</a> にアクセスしてログイン</li>
+                        <li>左上の「≡（三本線）メニュー」をクリック</li>
+                        <li>「ビジネス設定」を選ぶ</li>
+                        <li>左メニューの「アカウント」→「広告アカウント」をクリック</li>
+                        <li>画面中央に広告アカウント名と、その下に表示される「広告アカウントID：XXXXXXXXXXXXXXX（15桁）」をそのままコピーして弊社に送ってください。</li>
+                    </ol>
+
+                    <h4 class="font-bold text-brand-800 mb-2">【弊社側の作業】リクエストを送る手順</h4>
+                    <ol class="list-decimal list-inside space-y-1 ml-2 text-sm">
+                        <li>自社のビジネスマネージャーを開く</li>
+                        <li>「ビジネス設定」→「アカウント」→「広告アカウント」へ進む</li>
+                        <li>「追加」→「アクセスをリクエスト」を選ぶ（※「新しいアカウントを作成」ではないので注意）</li>
+                        <li>クライアントから教えてもらった広告アカウントID（15桁）を入力してリクエストを送る</li>
+                        <li>クライアントのビジネスマネージャーに通知が届くので、承認ボタンを押して完了</li>
+                    </ol>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border border-brand-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-brand-800 mb-4">広告アカウントの作成・設定（※弊社で新規作成する場合）</h3>
+                    <p class="mb-4 text-sm">アクセスリクエストではなく、弊社のビジネスマネージャーからクライアント用の新しい広告アカウントを作成する場合の手順です。</p>
+                    <ol class="list-decimal list-inside space-y-1 ml-2 mb-4 text-sm">
+                        <li>自社のビジネスマネージャーを開く</li>
+                        <li>「ビジネス設定」→「アカウント」→「広告アカウント」へ進む</li>
+                        <li>「＋追加」→「新しい広告アカウントを作成」を選ぶ</li>
+                        <li>以下を設定して作成する
+                            <ul class="list-disc list-inside ml-8 mt-2 text-gray-600 space-y-1">
+                                <li><strong>広告アカウント名</strong>：命名規則に従って入力（例：ABC社_整体_202504）</li>
+                                <li><strong>タイムゾーン</strong>：Asia/Tokyo（日本標準時）</li>
+                                <li><strong>通貨</strong>：JPY（日本円）</li>
+                            </ul>
+                        </li>
+                        <li>作成後、クライアントのビジネスマネージャーに広告アカウントを紐付ける</li>
+                    </ol>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded text-red-800 mt-4">
+                        <p class="font-bold mb-2 text-sm">⚠️ 広告アカウント作成時の注意点</p>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li><strong>タイムゾーンと通貨は後から変更できません。</strong> 必ず作成時に正しく設定してください。</li>
+                            <li><strong>広告アカウントは1クライアントにつき1アカウントが原則です。</strong> 複数クライアントを1アカウントで運用すると、Pixelデータや予算・請求が混在して管理不能になります。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 4 -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-brand-800 border-b-2 border-brand-100 pb-3 mb-6 flex items-center">
+                    <span class="step-number text-xl mr-3">4</span>管理の効率化設計
+                </h2>
+                <p class="mb-6 font-medium text-red-600">ここが最も重要なステップです。最初にルールと仕組みを整えておかないと、クライアント数が増えた時点で管理が破綻します。</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- 1. 命名規則 -->
+                    <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 border-l-4 border-brand-500 pl-2">1. 命名規則を統一する</h3>
+                        <p class="text-sm mb-3">全クライアントで共通の命名規則を設定することで、担当者が変わっても何を見ているか瞬時に分かります。</p>
+                        <ul class="space-y-2 text-sm text-gray-600 bg-gray-50 p-3 rounded">
+                            <li><strong>広告アカウント名：</strong>「クライアント名_業種_開始年月」<br><span class="text-xs text-gray-400">（例：ABC社_EC_202504）</span></li>
+                            <li><strong>キャンペーン名：</strong>「[目的][施策名][開始日]」<br><span class="text-xs text-gray-400">（例：CV_春季セール_20250401）</span></li>
+                            <li><strong>広告セット名：</strong>「[ターゲット][配置][入札戦略]」<br><span class="text-xs text-gray-400">（例：30代女性_自動配置_最小CPA）</span></li>
+                            <li><strong>広告名：</strong>「[クリエイティブ種別][訴求][番号]」<br><span class="text-xs text-gray-400">（例：動画_新商品紹介_001）</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. 権限管理 -->
+                    <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 border-l-4 border-brand-500 pl-2">2. 担当者ごとに権限を分ける</h3>
+                        <p class="text-sm mb-3">自社ビジネスマネージャーの「設定 → ユーザー → ユーザーを追加」から、スタッフに必要なクライアントの広告アカウントだけを割り当てます。</p>
+                        <ul class="space-y-2 text-sm text-gray-600 bg-gray-50 p-3 rounded">
+                            <li><strong>管理者：</strong> 全クライアントにアクセスできる権限</li>
+                            <li><strong>上級担当者：</strong> 担当クライアントの全操作ができる広告アカウント管理者権限</li>
+                            <li><strong>一般担当者：</strong> 担当クライアントの閲覧・レポートのみのアナリスト権限</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. 管理スプレッドシート -->
+                <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3 border-l-4 border-brand-500 pl-2">3. 管理スプレッドシートを作成する</h3>
+                    <p class="text-sm mb-4">クライアント数が増えても管理できるよう、全クライアントの状況を一覧できるマスター管理表が不可欠です。スプレッドシートで一元管理することで、どのクライアントがどの状態にあるかを瞬時に把握できます。</p>
+                    
+                    <div class="bg-brand-50 p-4 rounded border border-brand-100">
+                        <p class="font-bold text-brand-800 mb-2 text-sm">【管理推奨項目】</p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-brand-800">
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">クライアント名</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">BM所有者</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">広告アカウントID</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">社内担当者</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">契約開始日</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">月間広告予算</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">支払い方法</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">請求サイクル</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">クライアントのBM ID</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">運用ステータス</span>
+                            <span class="bg-white px-2 py-1 rounded shadow-sm">備考</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 5 -->
+            <section>
+                <h2 class="text-2xl font-bold text-brand-800 border-b-2 border-brand-100 pb-3 mb-6 flex items-center">
+                    <span class="step-number text-xl mr-3">5</span>広告キャンペーンの作成
+                </h2>
+                <p class="mb-6">環境が整ったら広告を作成します。Meta広告の構造は<strong>「キャンペーン → 広告セット → 広告」</strong>の3層になっています。</p>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center"><span class="text-brand-500 mr-2">▶</span>キャンペーン目的の選び方</h3>
+                        <p class="text-sm mb-3">目的は大きく「認知・検討・コンバージョン」の3カテゴリに分かれます。</p>
+                        <ul class="list-disc list-inside space-y-1 ml-2 text-sm bg-white border border-gray-200 p-4 rounded-lg">
+                            <li><strong>新規ブランドの認知拡大：</strong> リーチ・ブランド認知度向上</li>
+                            <li><strong>サイト訪問を増やしたい：</strong> トラフィック</li>
+                            <li><strong>問い合わせや登録を増やしたい：</strong> リード獲得</li>
+                            <li><strong>EC・予約・申し込みを増やしたい：</strong> 売上（購入）</li>
+                        </ul>
+                        <p class="text-sm text-gray-500 mt-2 ml-2">※ほとんどのクライアントではコンバージョン目的（売上やリード獲得など）が中心になります。</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center"><span class="text-brand-500 mr-2">▶</span>広告セットの設定</h3>
+                        <ul class="list-disc list-inside space-y-3 ml-2 text-sm bg-white border border-gray-200 p-4 rounded-lg">
+                            <li><strong>ターゲティング：</strong> 地域・年齢・性別などの基本設定に加え、興味関心・行動による詳細ターゲット、自社の顧客リストや過去のサイト訪問者を使ったカスタムオーディエンス、既存顧客に似たユーザーへ拡張する類似オーディエンスが使えます。</li>
+                            <li><strong>予算：</strong> 日予算（1日あたりの上限）か通算予算（期間全体の上限）を選べます。運用初期やテスト段階では日予算が管理しやすいです。</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center"><span class="text-brand-500 mr-2">▶</span>広告（クリエイティブ）の作成</h3>
+                        <p class="text-sm mb-3">広告マネージャーで対象キャンペーンを選び「+作成」から進みます。</p>
+                        <ol class="list-decimal list-inside space-y-2 ml-2 text-sm bg-white border border-gray-200 p-4 rounded-lg">
+                            <li><strong>フォーマット選択：</strong>
+                                <ul class="list-disc list-inside ml-6 mt-1 text-gray-600 space-y-1">
+                                    <li>1枚の画像または動画（最もよく使う）</li>
+                                    <li>カルーセル（複数商品の訴求に有効）</li>
+                                    <li>コレクション（ECサイト向け）</li>
+                                </ul>
+                            </li>
+                            <li><strong>入稿作業：</strong> Facebookページ・Instagramアカウントが正しく連携されているか確認してから、画像・動画・テキスト・CTA（コールトゥアクション）ボタンを入力します。</li>
+                            <li><strong>公開：</strong> プレビューを確認して公開します。</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+        
+        <footer class="mt-8 text-center text-sm text-gray-500">
+            <p>&copy; Meta Ads Agency Setup Manual. All rights reserved.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
