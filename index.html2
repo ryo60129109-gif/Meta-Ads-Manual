@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta広告 初期設定ガイド</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        meta: '#1877F2',
+                        'meta-dark': '#166FE5',
+                        'meta-light': '#E7F3FF',
+                    },
+                    fontFamily: {
+                        sans: ['"Hiragino Kaku Gothic ProN"', '"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 4rem;
+            bottom: -2rem;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .step-line::after {
+                left: 1.25rem;
+            }
+        }
+        .last-step .step-line::after {
+            display: none;
+        }
+        .browser-mockup {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-r from-meta-dark to-meta text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center justify-center p-3 bg-white/20 rounded-full mb-4">
+                <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight tracking-tight">Meta広告 初期設定ガイド</h1>
+            <p class="text-xl md:text-2xl font-medium opacity-90 mb-6">〜 はじめてでも迷わずできる！ステップ別手順書 〜</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 -mt-8 relative z-10">
+        
+        <!-- Introduction Card -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+            <h2 class="text-2xl font-bold border-b-2 border-meta-light pb-3 mb-6 flex items-center">
+                <i data-lucide="info" class="w-6 h-6 text-meta mr-2"></i>
+                このガイドでやること
+            </h2>
+            <p class="mb-6 text-lg">広告を出すための<strong>「土台づくり」</strong>を一緒に進めていきます。<br>
+            画面を見ながら上から順番にやっていけば必ず完了できます！<span class="inline-block bg-meta-light text-meta-dark px-2 py-1 rounded-md text-sm font-bold ml-2">所要時間: 約45分〜1時間</span></p>
+            
+            <div class="bg-gray-50 rounded-xl p-6 mb-8">
+                <h3 class="font-bold text-gray-700 mb-3">このガイドでお願いする作業は4つだけです：</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center"><div class="w-6 h-6 rounded-full bg-meta text-white flex items-center justify-center text-sm font-bold mr-3">1</div> Facebookビジネスマネージャーをつくる</li>
+                    <li class="flex items-center"><div class="w-6 h-6 rounded-full bg-meta text-white flex items-center justify-center text-sm font-bold mr-3">2</div> 弊社をパートナーとして追加する（承認するだけ）</li>
+                    <li class="flex items-center"><div class="w-6 h-6 rounded-full bg-meta text-white flex items-center justify-center text-sm font-bold mr-3">3</div> Facebookページ・Instagramを連携する</li>
+                    <li class="flex items-center"><div class="w-6 h-6 rounded-full bg-meta text-white flex items-center justify-center text-sm font-bold mr-3">4</div> クレジットカードを登録する</li>
+                </ul>
+                <p class="mt-4 text-sm text-gray-500 flex items-start">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 mr-1 mt-0.5 flex-shrink-0"></i>
+                    広告アカウントの作成や計測タグの設置など、専門的な作業は全て弊社側で行います。
+                </p>
+            </div>
+
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+                <i data-lucide="package" class="w-5 h-5 text-meta mr-2"></i>
+                事前に用意するもの
+            </h3>
+            <p class="mb-4">作業を始める前に、以下を手元に準備してください。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div class="border border-gray-200 rounded-lg p-4 flex items-center shadow-sm bg-white">
+                    <i data-lucide="laptop" class="w-8 h-8 text-gray-400 mr-3"></i>
+                    <div>
+                        <p class="font-bold">パソコン</p>
+                        <p class="text-xs text-gray-500">スマホより操作しやすいです</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 flex items-center shadow-sm bg-white">
+                    <i data-lucide="facebook" class="w-8 h-8 text-meta mr-3"></i>
+                    <div>
+                        <p class="font-bold">Facebookアカウント</p>
+                        <p class="text-xs text-gray-500">店舗・会社管理用に使います</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 flex items-center shadow-sm bg-white">
+                    <i data-lucide="instagram" class="w-8 h-8 text-pink-500 mr-3"></i>
+                    <div>
+                        <p class="font-bold">Instagram</p>
+                        <p class="text-xs text-gray-500">IDとパスワード</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 flex items-center shadow-sm bg-white">
+                    <i data-lucide="credit-card" class="w-8 h-8 text-gray-600 mr-3"></i>
+                    <div>
+                        <p class="font-bold">クレジットカード</p>
+                        <p class="text-xs text-gray-500">広告費の支払い用</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Alert -->
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg flex items-start">
+                <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-500 mr-3 flex-shrink-0 mt-0.5"></i>
+                <div>
+                    <h4 class="font-bold text-amber-800 mb-1">「Facebookなんてやっていない…」という方へ</h4>
+                    <p class="text-sm text-amber-700">Instagram広告だけを出す場合でも、広告を管理する仕組み上Facebookアカウントが必要になります。<br>まだお持ちでない方は <a href="https://facebook.com" target="_blank" class="font-bold underline hover:text-amber-900">facebook.com</a> から5分で作れます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps Section -->
+        <div class="space-y-12 mb-12">
+            
+            <!-- STEP 1 -->
+            <section class="step-line relative pl-12 md:pl-16">
+                <div class="absolute left-0 top-0 w-10 h-10 md:w-12 md:h-12 bg-meta text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 border-4 border-white">
+                    1
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 text-meta-dark">Facebookビジネスマネージャーをつくる</h2>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6 border border-gray-200">
+                        <h3 class="font-bold flex items-center mb-2"><i data-lucide="help-circle" class="w-5 h-5 mr-1 text-gray-500"></i>ビジネスマネージャーって何？</h3>
+                        <p class="text-sm text-gray-700">「ビジネスマネージャー」とは、広告に関係するものをまとめて管理できる「専用管理室」です。普段使っているFacebookとは完全に別の場所にあります。広告の設定・管理はここで行います。</p>
+                    </div>
+
+                    <h3 class="font-bold text-lg border-b border-gray-200 pb-2 mb-4">作り方手順</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">①</div>
+                            <div>
+                                <p class="font-bold">ページを開く</p>
+                                <p class="text-sm text-gray-600 mt-1">ブラウザのアドレスバーに以下を入力するか、クリックして開いてください。</p>
+                                <a href="https://business.facebook.com" target="_blank" class="inline-block mt-2 text-meta hover:underline bg-meta-light px-3 py-1 rounded-md text-sm font-mono border border-blue-200">https://business.facebook.com</a>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">②</div>
+                            <div>
+                                <p class="font-bold">ログインする</p>
+                                <p class="text-sm text-gray-600 mt-1">店舗（個人）Facebookアカウントでログインします。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">③</div>
+                            <div>
+                                <p class="font-bold">「アカウントを作成」を押す</p>
+                                <p class="text-sm text-gray-600 mt-1">画面の右上または中央にある「アカウントを作成」ボタンをクリックします。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Image Mockup -->
+                        <div class="browser-mockup rounded-xl border border-gray-200 overflow-hidden bg-white my-4 ml-7">
+                            <div class="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                <div class="ml-4 bg-white px-2 py-0.5 rounded text-xs text-gray-400 flex-1 font-mono">business.facebook.com</div>
+                            </div>
+                            <div class="bg-[#F0F2F5] p-6 flex justify-center items-center h-56 md:h-64">
+                                <div class="bg-white p-5 md:p-6 rounded-lg shadow-sm w-full max-w-sm border border-gray-200">
+                                    <h4 class="font-bold text-sm md:text-base mb-4 text-gray-800">ビジネスおよびアカウントを作成</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <div class="text-[10px] md:text-xs text-gray-500 mb-1">ビジネスおよびアカウントの名前</div>
+                                            <div class="border border-gray-300 rounded p-1.5 bg-gray-50 h-7 md:h-8"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[10px] md:text-xs text-gray-500 mb-1">あなたの名前</div>
+                                            <div class="border border-gray-300 rounded p-1.5 bg-gray-50 h-7 md:h-8"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[10px] md:text-xs text-gray-500 mb-1">仕事用メールアドレス</div>
+                                            <div class="border border-gray-300 rounded p-1.5 bg-gray-50 h-7 md:h-8"></div>
+                                        </div>
+                                        <div class="pt-2 flex justify-end">
+                                            <div class="bg-[#1877F2] text-white text-xs px-4 py-1.5 rounded font-bold cursor-pointer">送信</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-2 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-100">
+                                ▲【画面イメージ】画面内の「アカウントを作成」ボタンをクリックします
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">④</div>
+                            <div>
+                                <p class="font-bold">情報を入力する</p>
+                                <p class="text-sm text-gray-600 mt-1 mb-2">以下の3つを入力して「次へ」を押します。</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 bg-gray-50 p-3 rounded border border-gray-200">
+                                    <li><strong>ビジネス名：</strong> 会社の正式名称（例：株式会社〇〇）</li>
+                                    <li><strong>あなたの名前：</strong> 代表者の名前</li>
+                                    <li><strong>メールアドレス：</strong> 会社のメールアドレス（なければ個人メールでも可）</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">⑤</div>
+                            <div>
+                                <p class="font-bold">メールを確認する</p>
+                                <p class="text-sm text-gray-600 mt-1">入力したメールアドレスに「確認メール」が届きます。メールを開いて「メールアドレスを確認」ボタンをクリックしてください。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">⑥</div>
+                            <div>
+                                <p class="font-bold text-green-600 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-1"></i>完了！</p>
+                                <p class="text-sm text-gray-600 mt-1">ダッシュボード（管理画面）が表示されればビジネスマネージャーの作成は完了です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 2 -->
+            <section class="step-line relative pl-12 md:pl-16">
+                <div class="absolute left-0 top-0 w-10 h-10 md:w-12 md:h-12 bg-meta text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 border-4 border-white">
+                    2
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 text-meta-dark">弊社からの招待を承認する</h2>
+                    
+                    <p class="mb-4">弊社からあなたのビジネスマネージャーに招待を送ります。届いた通知を承認するだけで連携完了です。</p>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-6">
+                        <p class="text-sm text-blue-800">
+                            <strong>⚠️ 安心してください！</strong><br>
+                            承認しても、弊社がお金を勝手に使ったりアカウントを削除したりすることはできません。広告の設定・管理ができるようになるだけです。
+                        </p>
+                    </div>
+
+                    <h3 class="font-bold text-lg bg-gray-100 px-3 py-2 rounded-t-lg border-b border-gray-300">【事前準備】広告アカウントIDを伝える</h3>
+                    <div class="border border-t-0 border-gray-200 rounded-b-lg p-5 mb-8">
+                        <p class="text-sm mb-4">弊社が招待を送るために、<strong>「広告アカウントID（15桁の数字）」</strong>を教えていただく必要があります。以下の手順で確認してください。</p>
+                        <ol class="space-y-3 text-sm text-gray-700 list-decimal list-inside">
+                            <li><a href="https://business.facebook.com" target="_blank" class="text-meta hover:underline">business.facebook.com</a> にアクセスしてログイン</li>
+                            <li>左上「≡（三本線）」→「ビジネス設定」を開く</li>
+                            <li>左メニュー「アカウント」→「広告アカウント」をクリック</li>
+                            <li>画面中央に表示されている「広告アカウントID：XXXXXXXXXXXXXXX」の数字をコピーして弊社に送る</li>
+                        </ol>
+                    </div>
+
+                    <h3 class="font-bold text-lg border-b border-gray-200 pb-2 mb-4">承認の手順</h3>
+                    <p class="text-sm text-gray-600 mb-4">弊社から「招待を送りました」と連絡があったあと、以下の手順で承認してください。</p>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">①</div>
+                            <div>
+                                <p class="font-bold">ビジネスマネージャーにログイン</p>
+                                <p class="text-sm text-gray-600 mt-1"><a href="https://business.facebook.com" target="_blank" class="text-meta hover:underline">business.facebook.com</a> にアクセスしてログインします。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">②</div>
+                            <div>
+                                <p class="font-bold">通知を確認する</p>
+                                <p class="text-sm text-gray-600 mt-1">画面右上のベルマーク🔔または「リクエスト」に通知が届いています。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">③</div>
+                            <div>
+                                <p class="font-bold">承認ボタンを押す</p>
+                                <p class="text-sm text-gray-600 mt-1">弊社名が表示されたリクエストの「承認」ボタンを押します。</p>
+                            </div>
+                        </div>
+
+                        <!-- Image Mockup -->
+                        <div class="browser-mockup rounded-xl border border-gray-200 overflow-hidden bg-white my-4 ml-7">
+                            <div class="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="flex h-56 md:h-64 bg-white text-sm">
+                                <!-- Sidebar -->
+                                <div class="w-1/3 border-r border-gray-200 bg-gray-50 p-3 md:p-4 hidden sm:block">
+                                    <div class="font-bold text-gray-700 mb-4 text-xs md:text-sm">ビジネス設定</div>
+                                    <div class="space-y-2 text-gray-600 text-xs">
+                                        <div class="flex items-center"><i data-lucide="users" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>ユーザー</div>
+                                        <div class="flex items-center"><i data-lucide="briefcase" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>アカウント</div>
+                                        <div class="flex items-center text-[#1877F2] bg-blue-50 p-1.5 rounded"><i data-lucide="bell" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>リクエスト</div>
+                                    </div>
+                                </div>
+                                <!-- Main Content -->
+                                <div class="w-full sm:w-2/3 p-4 md:p-6 bg-white">
+                                    <h4 class="font-bold text-base md:text-lg mb-3 md:mb-4 border-b pb-2 text-gray-800">リクエスト</h4>
+                                    <div class="border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <div class="font-bold text-gray-800 text-xs md:text-sm">〇〇株式会社（代理店）</div>
+                                            <div class="text-[10px] md:text-xs text-gray-500">受信日時: 今日</div>
+                                        </div>
+                                        <p class="text-[10px] md:text-xs text-gray-600 mb-3 md:mb-4">あなたのビジネスアカウントへのアクセスをリクエストしています。</p>
+                                        <div class="flex space-x-2">
+                                            <div class="bg-[#1877F2] text-white text-xs px-3 py-1.5 rounded font-bold cursor-pointer">承認</div>
+                                            <div class="bg-gray-200 text-gray-800 text-xs px-3 py-1.5 rounded font-bold cursor-pointer">拒否</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-2 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-100">
+                                ▲【画面イメージ】リクエスト画面からパートナーの承認を行います
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">④</div>
+                            <div>
+                                <p class="font-bold text-green-600 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-1"></i>完了！</p>
+                                <p class="text-sm text-gray-600 mt-1 text-meta-dark font-bold bg-meta-light inline-block px-3 py-1 rounded">承認が完了したら弊社に「承認しました」とご連絡ください。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 3 -->
+            <section class="step-line relative pl-12 md:pl-16">
+                <div class="absolute left-0 top-0 w-10 h-10 md:w-12 md:h-12 bg-meta text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 border-4 border-white">
+                    3
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 text-meta-dark">Facebookページを連携する</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Left Col: すでに持っている場合 -->
+                        <div class="border border-gray-200 rounded-xl p-5 shadow-sm bg-white">
+                            <h3 class="font-bold text-lg text-meta flex items-center mb-4 border-b pb-2">
+                                <i data-lucide="check-square" class="w-5 h-5 mr-2"></i>すでにページを持っている場合
+                            </h3>
+                            <ul class="space-y-4 text-sm">
+                                <li class="flex"><span class="font-bold mr-2">①</span> <div><strong>ビジネスマネージャーを開く</strong><br><span class="text-gray-500"><a href="https://business.facebook.com" target="_blank" class="text-meta hover:underline">business.facebook.com</a> にアクセスし、左上「≡」から「ビジネス設定」を開きます。</span></div></li>
+                                <li class="flex"><span class="font-bold mr-2">②</span> <div><strong>ページの追加画面へ</strong><br><span class="text-gray-500">左メニュー「アカウント」→「ページ」→「＋追加」→「ページを追加」を選びます。</span></div></li>
+                                <li class="flex"><span class="font-bold mr-2">③</span> <div><strong>ページ名またはURLを入力</strong><br><span class="text-gray-500">自社のFacebookページの名前かURLを入力して「ページを追加」を押します。</span></div></li>
+                                <li class="flex"><span class="font-bold text-green-600 mr-2">④</span> <div class="text-green-700 font-bold">完了！ <span class="text-gray-500 font-normal">一覧に表示されればOKです。</span></div></li>
+                            </ul>
+                        </div>
+
+                        <!-- Right Col: 持っていない場合 -->
+                        <div class="border border-gray-200 rounded-xl p-5 shadow-sm bg-gray-50">
+                            <h3 class="font-bold text-lg text-gray-700 flex items-center mb-4 border-b pb-2">
+                                <i data-lucide="plus-square" class="w-5 h-5 mr-2"></i>まだページを持っていない場合
+                            </h3>
+                            <ul class="space-y-4 text-sm">
+                                <li class="flex"><span class="font-bold mr-2">①</span> <div>Facebookの <a href="https://facebook.com/pages/create" target="_blank" class="text-meta font-bold underline">ページの作成画面</a> にアクセス</div></li>
+                                <li class="flex"><span class="font-bold mr-2">②</span> <div>会社名と業種カテゴリを入力して作成</div></li>
+                                <li class="flex"><span class="font-bold mr-2">③</span> <div>
+                                    以下の情報を入力（広告の信頼性が上がります）
+                                    <ul class="list-disc list-inside text-gray-500 mt-1 ml-1">
+                                        <li>会社のロゴ・店舗写真</li>
+                                        <li>住所・電話番号・営業時間</li>
+                                    </ul>
+                                </div></li>
+                                <li class="flex"><span class="font-bold text-green-600 mr-2">④</span> <div>作成後、左記と同じ手順で<strong>ビジネスマネージャーに連携</strong>する</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Image Mockup -->
+                    <div class="browser-mockup rounded-xl border border-gray-200 overflow-hidden bg-white mt-6">
+                        <div class="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="flex h-56 md:h-64 bg-white text-sm">
+                            <!-- Sidebar -->
+                            <div class="w-1/3 border-r border-gray-200 bg-gray-50 p-3 md:p-4 hidden sm:block">
+                                <div class="font-bold text-gray-700 mb-4 text-xs md:text-sm">ビジネス設定</div>
+                                <div class="space-y-2 text-gray-600 text-xs">
+                                    <div class="flex items-center text-[#1877F2] bg-blue-50 p-1.5 rounded"><i data-lucide="flag" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>ページ</div>
+                                    <div class="flex items-center p-1.5"><i data-lucide="instagram" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>Instagram</div>
+                                </div>
+                            </div>
+                            <!-- Main Content -->
+                            <div class="w-full sm:w-2/3 p-4 md:p-6 bg-white relative">
+                                <div class="flex justify-between items-center mb-4 border-b pb-2">
+                                    <h4 class="font-bold text-base md:text-lg text-gray-800">ページ</h4>
+                                    <div class="bg-[#1877F2] text-white text-[10px] md:text-xs px-2 md:px-3 py-1.5 rounded font-bold inline-flex items-center cursor-pointer">
+                                        追加 <i data-lucide="chevron-down" class="w-3 h-3 ml-1"></i>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center items-center h-24 md:h-32 border-2 border-dashed border-gray-200 rounded-lg bg-gray-50">
+                                    <div class="text-center">
+                                        <p class="text-gray-400 text-xs md:text-sm font-medium">ページがまだありません</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-100">
+                            ▲【画面イメージ】ビジネス設定 ＞ アカウント ＞ ページ から追加します
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 4 -->
+            <section class="step-line relative pl-12 md:pl-16">
+                <div class="absolute left-0 top-0 w-10 h-10 md:w-12 md:h-12 bg-meta text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 border-4 border-white">
+                    4
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center text-meta-dark">
+                        <i data-lucide="instagram" class="w-6 h-6 mr-2 text-pink-500"></i>Instagramアカウントを連携する
+                    </h2>
+                    
+                    <p class="mb-6 text-gray-700">Instagramと広告を繋げる作業です。これをするとInstagramにも広告が表示されるようになります。</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">①</div>
+                            <div>
+                                <p class="font-bold">ビジネスマネージャーを開く</p>
+                                <p class="text-sm text-gray-600 mt-1"><a href="https://business.facebook.com" target="_blank" class="text-meta hover:underline">business.facebook.com</a> にアクセスし、左上「≡」から「ビジネス設定」を開きます。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">②</div>
+                            <div>
+                                <p class="font-bold">Instagramアカウントの追加画面へ</p>
+                                <p class="text-sm text-gray-600 mt-1">左メニュー「アカウント」→「Instagramアカウント」→「＋追加」をクリックします。</p>
+                            </div>
+                        </div>
+
+                        <!-- Image Mockup -->
+                        <div class="browser-mockup rounded-xl border border-gray-200 overflow-hidden bg-white my-2 ml-7">
+                            <div class="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="flex h-56 md:h-64 bg-white text-sm">
+                                <!-- Sidebar -->
+                                <div class="w-1/3 border-r border-gray-200 bg-gray-50 p-3 md:p-4 hidden sm:block">
+                                    <div class="font-bold text-gray-700 mb-4 text-xs md:text-sm">ビジネス設定</div>
+                                    <div class="space-y-2 text-gray-600 text-xs">
+                                        <div class="flex items-center p-1.5"><i data-lucide="flag" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>ページ</div>
+                                        <div class="flex items-center text-[#1877F2] bg-blue-50 p-1.5 rounded"><i data-lucide="instagram" class="w-3 h-3 md:w-4 md:h-4 mr-2"></i>Instagram</div>
+                                    </div>
+                                </div>
+                                <!-- Main Content -->
+                                <div class="w-full sm:w-2/3 p-4 md:p-6 bg-white flex flex-col justify-center items-center text-center">
+                                    <div class="w-10 h-10 md:w-12 md:h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-3">
+                                        <i data-lucide="instagram" class="w-5 h-5 md:w-6 md:h-6"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-800 mb-2 text-sm md:text-base">Instagramアカウント</h4>
+                                    <p class="text-[10px] md:text-xs text-gray-500 mb-4 px-4">Instagramアカウントをビジネスに追加して管理します。</p>
+                                    <div class="bg-[#1877F2] text-white text-xs px-4 py-2 rounded font-bold cursor-pointer hover:bg-blue-600">
+                                        Instagramアカウントを追加
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">③</div>
+                            <div>
+                                <p class="font-bold">Instagramにログインする</p>
+                                <p class="text-sm text-gray-600 mt-1">ポップアップ画面が開くので、会社のInstagramのユーザー名とパスワードを入力して「ログイン」します。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">④</div>
+                            <div>
+                                <p class="font-bold text-green-600 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-1"></i>完了！</p>
+                                <p class="text-sm text-gray-600 mt-1">Instagramアカウントが一覧に表示されれば連携完了です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 5 -->
+            <section class="last-step relative pl-12 md:pl-16">
+                <div class="absolute left-0 top-0 w-10 h-10 md:w-12 md:h-12 bg-meta text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 border-4 border-white">
+                    5
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center text-meta-dark">
+                        <i data-lucide="credit-card" class="w-6 h-6 mr-2 text-gray-600"></i>クレジットカードを登録する
+                    </h2>
+                    
+                    <p class="mb-6 text-gray-700">広告費を支払うためのクレジットカードを登録します。登録したカードから広告費が自動で引き落とされます。</p>
+
+                    <h3 class="font-bold text-lg border-b border-gray-200 pb-2 mb-4">登録手順</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">①</div>
+                            <div>
+                                <p class="font-bold">ビジネスマネージャーを開く</p>
+                                <p class="text-sm text-gray-600 mt-1"><a href="https://business.facebook.com" target="_blank" class="text-meta hover:underline">business.facebook.com</a> にアクセスし、左上「≡」から「広告マネージャー」を開きます。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">②</div>
+                            <div>
+                                <p class="font-bold">請求と支払いの設定へ</p>
+                                <p class="text-sm text-gray-600 mt-1">画面左上「≡」→「請求と支払い」を選びます。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">③</div>
+                            <div>
+                                <p class="font-bold">「支払い方法を追加」を押す</p>
+                                <p class="text-sm text-gray-600 mt-1">「支払い方法を追加」ボタンをクリックします。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">④</div>
+                            <div>
+                                <p class="font-bold">「クレジットカードまたはデビットカード」を選択</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">⑤</div>
+                            <div>
+                                <p class="font-bold">カード情報を入力して「続行」を押す</p>
+                                <div class="bg-gray-50 border border-gray-200 rounded p-3 mt-2 grid grid-cols-2 gap-2 text-sm text-gray-700">
+                                    <div class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-meta mr-1"></i>カード番号</div>
+                                    <div class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-meta mr-1"></i>有効期限</div>
+                                    <div class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-meta mr-1"></i>セキュリティコード(裏面3桁)</div>
+                                    <div class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-meta mr-1"></i>カード名義人(ローマ字)</div>
+                                    <div class="flex items-center col-span-2"><i data-lucide="check" class="w-4 h-4 text-meta mr-1"></i>請求先住所</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Image Mockup -->
+                        <div class="browser-mockup rounded-xl border border-gray-200 overflow-hidden bg-white my-4 ml-7">
+                            <div class="bg-gray-100 border-b border-gray-200 px-4 py-2 flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="bg-white h-56 md:h-64 p-4 md:p-6 flex flex-col">
+                                <h4 class="font-bold text-base md:text-lg mb-4 border-b pb-2 text-gray-800">支払い設定</h4>
+                                <div class="border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm flex-1 flex flex-col justify-center">
+                                    <div class="font-bold text-gray-700 mb-2 text-sm">支払い方法</div>
+                                    <p class="text-[10px] md:text-xs text-gray-500 mb-4">広告に使用するクレジットカードやデビットカードを追加します。</p>
+                                    <div class="flex items-center justify-between border-t border-gray-100 pt-3 md:pt-4 mt-auto">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-8 h-5 bg-blue-50 border border-blue-200 rounded text-[8px] font-bold text-blue-800 flex items-center justify-center">VISA</div>
+                                            <div class="w-8 h-5 bg-red-50 border border-red-200 rounded text-[8px] font-bold text-red-800 flex items-center justify-center">MC</div>
+                                        </div>
+                                        <div class="bg-white border border-gray-300 text-gray-700 text-[10px] md:text-xs px-3 py-1.5 rounded font-bold cursor-pointer hover:bg-gray-50">
+                                            支払い方法を追加
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="font-bold text-meta mr-3">⑥</div>
+                            <div>
+                                <p class="font-bold text-green-600 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-1"></i>完了！</p>
+                                <p class="text-sm text-gray-600 mt-1">カードが一覧に表示されれば登録完了です。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alert Box -->
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+                        <h4 class="font-bold text-red-800 flex items-center mb-3">
+                            <i data-lucide="alert-circle" class="w-5 h-5 mr-2"></i>クレジットカード登録に関する3つの注意点
+                        </h4>
+                        <ul class="space-y-2 text-sm text-red-900">
+                            <li class="flex items-start"><span class="font-bold mr-2">①</span>広告費は一定金額に達するたびに自動で引き落とされます。残高不足にならないよう注意してください。</li>
+                            <li class="flex items-start"><span class="font-bold mr-2">②</span>カード情報を変更した場合は必ず弊社にご連絡ください。カードが使えなくなると広告が自動停止されてしまいます。</li>
+                            <li class="flex items-start"><span class="font-bold mr-2">③</span>登録できるのはVisa・Mastercard・American Expressなどの国際ブランドのカードです。一部のデビットカードやプリペイドカードは登録できない場合があります。</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Checklist Section -->
+        <section class="bg-meta-dark text-white rounded-2xl shadow-xl p-6 md:p-10 mb-10 overflow-hidden relative">
+            <div class="absolute top-0 right-0 opacity-10">
+                <i data-lucide="check-square" class="w-64 h-64 -mt-10 -mr-10"></i>
+            </div>
+            
+            <div class="relative z-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2 flex items-center">
+                    完了チェックリスト
+                </h2>
+                <p class="mb-6 opacity-90">全部できたかクリックして確認しましょう！</p>
+
+                <!-- Progress Bar -->
+                <div class="mb-6 bg-white/20 rounded-full h-4 overflow-hidden">
+                    <div id="progress-bar" class="bg-green-400 h-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+                <div class="text-right text-sm font-bold mb-6" id="progress-text">0 / 5 完了</div>
+
+                <div class="space-y-3 mb-8">
+                    <label class="checklist-item flex items-center p-4 bg-white/10 hover:bg-white/20 rounded-xl cursor-pointer transition-colors border border-white/10">
+                        <input type="checkbox" class="w-6 h-6 rounded border-gray-300 text-meta focus:ring-meta bg-white cursor-pointer accent-green-500">
+                        <span class="ml-4 font-medium text-lg">ビジネスマネージャーを作成した</span>
+                    </label>
+                    <label class="checklist-item flex items-center p-4 bg-white/10 hover:bg-white/20 rounded-xl cursor-pointer transition-colors border border-white/10">
+                        <input type="checkbox" class="w-6 h-6 rounded border-gray-300 text-meta focus:ring-meta bg-white cursor-pointer accent-green-500">
+                        <span class="ml-4 font-medium text-lg">弊社をパートナーとして追加して「完了しました」と連絡した</span>
+                    </label>
+                    <label class="checklist-item flex items-center p-4 bg-white/10 hover:bg-white/20 rounded-xl cursor-pointer transition-colors border border-white/10">
+                        <input type="checkbox" class="w-6 h-6 rounded border-gray-300 text-meta focus:ring-meta bg-white cursor-pointer accent-green-500">
+                        <span class="ml-4 font-medium text-lg">Facebookページをビジネスマネージャーに連携した</span>
+                    </label>
+                    <label class="checklist-item flex items-center p-4 bg-white/10 hover:bg-white/20 rounded-xl cursor-pointer transition-colors border border-white/10">
+                        <input type="checkbox" class="w-6 h-6 rounded border-gray-300 text-meta focus:ring-meta bg-white cursor-pointer accent-green-500">
+                        <span class="ml-4 font-medium text-lg">Instagramアカウントを連携した</span>
+                    </label>
+                    <label class="checklist-item flex items-center p-4 bg-white/10 hover:bg-white/20 rounded-xl cursor-pointer transition-colors border border-white/10">
+                        <input type="checkbox" class="w-6 h-6 rounded border-gray-300 text-meta focus:ring-meta bg-white cursor-pointer accent-green-500">
+                        <span class="ml-4 font-medium text-lg">クレジットカードを登録した</span>
+                    </label>
+                </div>
+
+                <div id="completion-message" class="hidden transform transition-all duration-500 bg-white text-meta-dark p-6 rounded-xl text-center shadow-lg">
+                    <i data-lucide="party-popper" class="w-12 h-12 mx-auto text-yellow-500 mb-3"></i>
+                    <h3 class="text-2xl font-bold mb-2">お疲れ様でした！</h3>
+                    <p class="font-medium">全部チェックできたら弊社に<strong>「設定完了しました！」</strong>と連絡してください。</p>
+                    <p class="text-sm mt-2 text-gray-600">残りの作業（広告アカウントの作成・計測タグの設置など）は全て弊社側で行います。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Help -->
+        <div class="text-center pb-12">
+            <p class="text-gray-500 mb-2">何か分からないことがあれば、どのSTEPで詰まっているかを弊社にお伝えください。</p>
+        </div>
+
+    </main>
+
+    <!-- Script for Checklist and Icons -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Checklist Progress Logic
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const completionMessage = document.getElementById('completion-message');
+
+        function updateProgress() {
+            const total = checkboxes.length;
+            const checked = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked').length;
+            const percentage = (checked / total) * 100;
+            
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${checked} / ${total} 完了`;
+            
+            // Visual feedback for checked items
+            checkboxes.forEach(cb => {
+                const parent = cb.closest('.checklist-item');
+                if (cb.checked) {
+                    parent.classList.add('opacity-50', 'bg-black/20');
+                    parent.querySelector('span').classList.add('line-through');
+                } else {
+                    parent.classList.remove('opacity-50', 'bg-black/20');
+                    parent.querySelector('span').classList.remove('line-through');
+                }
+            });
+
+            if (percentage === 100) {
+                completionMessage.classList.remove('hidden');
+                // Optional: Scroll to completion message
+                setTimeout(() => {
+                    completionMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            } else {
+                completionMessage.classList.add('hidden');
+            }
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateProgress);
+        });
+    </script>
+</body>
+</html>
